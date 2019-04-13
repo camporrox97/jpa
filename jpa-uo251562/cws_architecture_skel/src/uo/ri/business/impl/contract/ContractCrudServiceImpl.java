@@ -7,6 +7,7 @@ import uo.ri.business.ContractCrudService;
 import uo.ri.business.dto.ContractDto;
 import uo.ri.business.exception.BusinessException;
 import uo.ri.business.impl.CommandExecutor;
+import uo.ri.business.impl.contract.command.FindContractById;
 import uo.ri.business.impl.contract.command.FindContractsByMechanicId;
 import uo.ri.business.impl.payroll.command.FindPayrollsByMechanicId;
 import uo.ri.conf.Factory;
@@ -42,8 +43,8 @@ public class ContractCrudServiceImpl implements ContractCrudService {
 
 	@Override
 	public ContractDto findContractById(Long id) throws BusinessException {
-		// TODO Auto-generated method stub
-		return null;
+		return executor.execute(new FindContractById(id));
+
 	}
 
 	@Override

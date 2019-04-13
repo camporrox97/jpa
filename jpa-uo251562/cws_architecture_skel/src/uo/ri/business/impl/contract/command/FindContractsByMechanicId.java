@@ -5,6 +5,7 @@ import java.util.List;
 
 import uo.ri.business.dto.ContractDto;
 import uo.ri.business.dto.PayrollDto;
+import uo.ri.business.exception.BusinessCheck;
 import uo.ri.business.exception.BusinessException;
 import uo.ri.business.impl.Command;
 import uo.ri.business.impl.util.DtoAssembler;
@@ -18,7 +19,7 @@ import uo.ri.model.Payroll;
 
 public class FindContractsByMechanicId implements Command <List<ContractDto>>{
 	
-	ContractRepository repo = Factory.repository.forContracts();
+	private ContractRepository repo = Factory.repository.forContracts();
 	private MecanicoRepository repoMecanico = Factory.repository.forMechanic();
 	private Long id;
 
@@ -28,16 +29,15 @@ public class FindContractsByMechanicId implements Command <List<ContractDto>>{
 
 	@Override
 	public List<ContractDto> execute() throws BusinessException {
-
+		
 		Mecanico m = repoMecanico.findById(id);
-		if(m == null) {
-			
-			return new ArrayList<ContractDto>() ;
+		BusinessCheck.isNotNull(m, "No existe dicho mecanico");
 
-		}
-			
-		List<Contract> p =  repo.findContractById( id );
-		return DtoAssembler.toContracttoList( p );	}
+		List<Contract> ct = repo.findContractById(id);
+
+		return DtoAssembler.toContracttoList(ct);
+
+	}
 	
 	
 

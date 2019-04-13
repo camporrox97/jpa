@@ -12,21 +12,17 @@ import uo.ri.ui.admin.mechanic.action.UpdateMechanicAction;
 public class MecanicosMenu extends BaseMenu {
 
 	public MecanicosMenu() {
-		menuOptions = new Object[][] {
-				{ "Administrador > Gestión de mecánicos", null },
+		menuOptions = new Object[][] { { "Administrador > Gestión de mecánicos", null },
 
 				{ "Añadir mecánico", AddMechanicAction.class },
 				{ "Modificar datos de mecánico", UpdateMechanicAction.class },
 				{ "Eliminar mecánico", DeleteMechanicAction.class },
-				{ "Listar mecánicos (activo)",
-						ListActiveMechanicsAction.class },
-				{ "Listar mecánicos (histórico)",
-						ListMechanicsAction.class }, 
-				{"Listar mecánicos repuesto ",  ListarMechanicsWithRuestos.class},
-				{"Listar mecánicos participado intervencion ultimo año"
-					, ListarMechanicsWithIntervencionLastYear.class}
-		};
-				
+				{ "Listar mecánicos (activo)", ListActiveMechanicsAction.class },
+				{ "Listar mecánicos (histórico)", ListMechanicsAction.class },
+				{ "Listar mecánicos repuesto ", ListarMechanicsWithRuestos.class },
+				{ "Listar mecánicos participado intervencion ultimo año",
+						ListarMechanicsWithIntervencionLastYear.class } };
+
 	}
 
 }

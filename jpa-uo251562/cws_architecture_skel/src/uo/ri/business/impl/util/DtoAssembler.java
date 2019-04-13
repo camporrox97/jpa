@@ -215,12 +215,21 @@ public class DtoAssembler {
 		 return dto;
 	}
 	
-	public static ContractDto toDto(Contract m) {
+	public static ContractDto toDto(Contract ct) {
 		ContractDto dto = new ContractDto();
 
-		 
-		 dto.id = m.getId();
-		 dto.status = m.getStatus().toString();
+		dto.id = ct.getId();
+		dto.yearBaseSalary = ct.getBaseSalaryPerYear();
+		dto.compensation = ct.getCompensation();
+		dto.startDate = ct.getStartDate();
+		dto.endDate = ct.getEndDate();
+		dto.status = ct.getStatus().toString();
+		dto.mechanicId = ct.getMechanic().getId();
+		dto.categoryId = ct.getContractCategory().getId();
+		dto.typeId = ct.getContractType().getId();
+		dto.dni = ct.getMechanic().getDni();
+		dto.categoryName = ct.getContractCategory().getName();
+		dto.typeName = ct.getContractType().getName();
 		 
 		 return dto;
 	}

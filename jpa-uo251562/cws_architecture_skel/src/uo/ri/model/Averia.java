@@ -230,7 +230,7 @@ public class Averia {
 
 	/**
 	 * Edte método se llama desde la factura al ejecutar factura.removeAveria()
-	 * Retrocede la averia a TERMINADA
+	 * Retrocede la averia a TERMINADA. 
 	 * 
 	 * @see Diagramas de estados en el enunciado de referencia
 	 * @throws IllegalStateException si - La averia no está en estado FACTURADA,
